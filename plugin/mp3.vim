@@ -1,13 +1,25 @@
 function Mp3Play()
 python << EOF
 
-import vim, mp3play, time    
+import vim, mp3play, time, re    
+import os.path
 
-filename = r'background.mp3'
+pattern = re.compile(r'BackgroundMusick')
+
+filename = ''
+
+for i in vim._get_paths():
+    match = pattern.match(i)
+    if match:
+        filename =i.rpartition('/')[0]
+        break
+
+filename = os.path.join(filename, 'background.mp3')
+
 clip = mp3play.load(filename)
 
 clip.play()
-time.sleep(min(200, clip.seconds()))
+time.sleep(min(10, clip.seconds()))
 clip.stop()
 
 EOF
