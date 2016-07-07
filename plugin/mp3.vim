@@ -1,25 +1,30 @@
-function Mp3Play()
+ASADFSFS
 python << EOF
 
 import vim, mp3play, time  
 import os.path
 import os
+from threading import Thread
 
-filename = ''
+def play():
+    filename = ''
 
-for i in vim._get_paths():
-    if 'BackgroundMusic' in i: 
-        filename = i[0:i.rfind(os.sep)]
-        break
+    for i in vim._get_paths():
+        if 'BackgroundMusic' in i: 
+            filename = i[0:i.rfind(os.sep)]
+            break
 
-filename = os.path.join(filename, r'background.mp3')
-print filename
+    filename = os.path.join(filename, r'background.mp3')
+    print filename
 
-clip = mp3play.load(filename)
+    clip = mp3play.load(filename)
 
-clip.play()
-time.sleep(min(10, clip.seconds()))
-clip.stop()
+    clip.play()
+    time.sleep(min(10, clip.seconds()))
+    clip.stop()
+    
+p = Thread(target = play)
+p.start()
 
 EOF
 endfunction
