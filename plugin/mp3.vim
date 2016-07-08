@@ -1,4 +1,3 @@
-ASADFSFS
 python << EOF
 
 import vim, mp3play, time  
@@ -15,16 +14,13 @@ def play():
             break
 
     filename = os.path.join(filename, r'background.mp3')
-    print filename
 
     clip = mp3play.load(filename)
 
     clip.play()
-    time.sleep(min(10, clip.seconds()))
+    time.sleep(min(1800, clip.seconds()))
     clip.stop()
-    
 p = Thread(target = play)
 p.start()
 
 EOF
-endfunction
