@@ -18,7 +18,7 @@ def play():
     clip = mp3play.load(filename)
 
     clip.play()
-    time.sleep(min(30, clip.seconds()))
+    time.sleep(min(300, clip.seconds()))
     clip.stop()
 
 p = Thread(target = play, name = 'play')
