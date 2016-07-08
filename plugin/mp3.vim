@@ -18,9 +18,12 @@ def play():
     clip = mp3play.load(filename)
 
     clip.play()
-    time.sleep(min(1800, clip.seconds()))
+    time.sleep(min(30, clip.seconds()))
     clip.stop()
-p = Thread(target = play)
+
+p = Thread(target = play, name = 'play')
+p.daemon = True
 p.start()
+
 
 EOF
