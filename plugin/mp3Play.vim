@@ -30,7 +30,7 @@ def play(mp3):
     clip = mp3play.load(filename)
 
     clip.play()
-    time.sleep(min(60,clip.seconds()))
+    time.sleep(min(300,clip.seconds()))
     clip.stop()
 
 def forever():
