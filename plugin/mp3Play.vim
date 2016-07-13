@@ -8,7 +8,6 @@ from threading import Thread
 import random
 
 def init():
-    global ROOT_DIR, MP3_DIR
     root_dir = ''
 
     for i in vim._get_paths():
